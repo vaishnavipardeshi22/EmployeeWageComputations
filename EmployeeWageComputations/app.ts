@@ -31,6 +31,11 @@ let getWorkingHours = (randomCheck: number) => {
 	}
 }
 
+// FUNCTION TO GET DAILY WAGE
+let calcDailyWage = (employeeHrs: number) => {
+	var dailyWage = employeeHrs * EMP_WAGE_RATE_PER_HOUR;
+	console.log("Daily wage : " + dailyWage);
+}
 // WHILE LOOP TO GET MONTHLY WAGE OF EMPLOYEE
 while (totalEmpHrs < MAX_HRS_IN_MONTH && totalWorkingDays < NUM_WORKING_DAYS) {
 
@@ -39,6 +44,8 @@ while (totalEmpHrs < MAX_HRS_IN_MONTH && totalWorkingDays < NUM_WORKING_DAYS) {
 	// CALCULATE TOTAL EMPLOYEE HOURS
 	employeeCheck = getWorkingHours(Math.round(Math.random() * 10) % 3);
 	totalEmpHrs += employeeHrs;
+	var empDailyWage: Array<number> = [totalEmpHrs];
+	calcDailyWage (employeeHrs);
 }
 
 // CALCULATE TOTAL SALARY

@@ -24,13 +24,20 @@ var getWorkingHours = function (randomCheck) {
             break;
     }
 };
+// FUNCTION TO GET DAILY WAGE
+var calcDailyWage = function (employeeHrs) {
+    var dailyWage = employeeHrs * EMP_WAGE_RATE_PER_HOUR;
+    console.log("Daily wage : " + dailyWage);
+};
 // WHILE LOOP TO GET MONTHLY WAGE OF EMPLOYEE
 while (totalEmpHrs < MAX_HRS_IN_MONTH && totalWorkingDays < NUM_WORKING_DAYS) {
     totalWorkingDays++;
     // CALCULATE TOTAL EMPLOYEE HOURS
     employeeCheck = getWorkingHours(Math.round(Math.random() * 10) % 3);
     totalEmpHrs += employeeHrs;
+    var empDailyWage = [totalEmpHrs];
+    calcDailyWage(employeeHrs);
 }
 // CALCULATE TOTAL SALARY
 totalSalary = (totalEmpHrs * EMP_WAGE_RATE_PER_HOUR);
-console.log("Daily Employee Wage for " + totalEmpHrs + " Hours : " + totalSalary);
+console.log("Monthly Employee Wage for " + totalEmpHrs + " Hours : " + totalSalary);
